@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DataBindingDemo</string>
+    <string name="year_date">%1$s年%2$s月%3$s日</string>
+    <string name="home_team">ホームチーム</string>
+    <string name="away_team">アウエーチーム</string>
+    <string name="check_score">結果を見る</string>
+    <string name="unknown_stadium">場所不明</string>
+    <string name="menu_giants">巨人軍</string>
+    <string name="menu_dragons">ドラゴンズ</string>
+    <string name="menu_swallows">スワローズ</string>
+</resources>

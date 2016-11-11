@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_bottom_giants"
+        android:icon="@drawable/ic_giants"
+        android:title="@string/menu_giants" />
+    <item
+        android:id="@+id/menu_bottom_dragons"
+        android:icon="@drawable/ic_chunichi"
+        android:title="@string/menu_dragons" />
+    <item
+        android:id="@+id/menu_bottom_swallows"
+        android:enabled="true"
+        android:icon="@drawable/ic_swallows"
+        android:title="@string/menu_swallows" />
+</menu>
