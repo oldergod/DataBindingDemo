@@ -24,15 +24,11 @@ public class ListActivity extends AppCompatActivity
 
     MatchViewModel matchViewModel = new MatchViewModel(Match.giantsTigers);
     private ConstraintLayout activityList;
-    private TextView dateView;
-    private TextView stadiumView;
     private CheckBox showScoreView;
     private TextView scoreView;
     private BottomNavigationView bottomNavigationView;
     private ImageView homeTeamIconView;
-    private TextView homeTeamNameView;
     private ImageView awayTeamIconView;
-    private TextView awayTeamNameView;
     private ActivityMainBinding binding;
 
     @Override
@@ -48,17 +44,13 @@ public class ListActivity extends AppCompatActivity
 
     private void bindViews() {
         activityList = binding.activityList;
-        dateView = binding.date;
-        stadiumView = binding.stadium;
         showScoreView = binding.showScore;
         scoreView = binding.score;
         bottomNavigationView = binding.bottomNavigation;
 
         homeTeamIconView = binding.homeTeam.teamicon;
-        homeTeamNameView = binding.homeTeam.teamName;
 
         awayTeamIconView = binding.awayTeam.teamicon;
-        awayTeamNameView = binding.awayTeam.teamName;
     }
 
     private void setupListeners() {
@@ -67,20 +59,12 @@ public class ListActivity extends AppCompatActivity
     }
 
     private void fillData(MatchViewModel matchViewModel) {
+        binding.setMatchVM(matchViewModel);
+
         Match match = matchViewModel.getMatch();
-        dateView.setText(getString(R.string.year_date, match.getYear(), match.getMonth(), match.getDay()));
-        if (match.getStadium() == null) {
-            stadiumView.setText(R.string.unknown_stadium);
-        } else {
-            stadiumView.setText(match.getStadium());
-        }
-        showScoreView.setChecked(match.isShowScore());
-        scoreView.setText(match.getScore());
         scoreView.setVisibility(match.isShowScore() ? VISIBLE : GONE);
         homeTeamIconView.setImageResource(match.getHomeTeam().getDrawableId());
-        homeTeamNameView.setText(match.getHomeTeam().getFullname());
         awayTeamIconView.setImageResource(match.getAwayTeam().getDrawableId());
-        awayTeamNameView.setText(match.getAwayTeam().getFullname());
     }
 
     @Override

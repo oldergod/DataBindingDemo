@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="matchVM"
+            type="io.oldering.sandbox.databindingdemo.MatchViewModel" />
+    </data>
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/activity_list"
         android:layout_width="match_parent"
@@ -16,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:text="@{@string/year_date(matchVM.match.year, matchVM.match.month, matchVM.match.day)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -27,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="@{matchVM.match.stadium ?? @string/unknown_stadium}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -40,7 +49,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/awayTeam"
-            app:layout_constraintTop_toBottomOf="@+id/stadium" />
+            app:layout_constraintTop_toBottomOf="@+id/stadium"
+            app:team="@{matchVM.match.homeTeam}" />
 
         <include
             android:id="@+id/awayTeam"
@@ -49,7 +59,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@+id/homeTeam"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stadium" />
+            app:layout_constraintTop_toBottomOf="@+id/stadium"
+            app:team="@{matchVM.match.awayTeam}" />
 
         <CheckBox
             android:id="@+id/showScore"
@@ -58,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:buttonTint="@color/colorPrimary"
+            android:checked="@{matchVM.match.showScore}"
             android:padding="8dp"
             android:text="@string/check_score"
             android:textColor="@color/colorPrimary"
@@ -72,6 +84,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
+            android:text="@{matchVM.match.score}"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
