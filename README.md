@@ -1,6 +1,6 @@
 # Data Binding implementation: step by step
 
-This is a demo app to show how to incrementally implement data binding in an Android app.
+This is a demo app to show how to incrementally implement data binding in an Android app.  
 It starts from a branch without any data binding for each step would be represented by a new branch.
 
 [0-no-databinding](https://github.com/oldergod/DataBindingDemo/tree/0-no-databinding)  
@@ -27,14 +27,14 @@ See the changed code here: https://github.com/oldergod/DataBindingDemo/compare/0
 
 ## 2. No more `findViewById`s
 
-With data binding activated, you can know access directly your layout views using the binding object returned from the layout inflation.
+With data binding activated, you can know access directly your layout views using the binding object returned from the layout inflation.  
 It is type safe, you are sure you did not make mistakes setting the `@id` and it also works with included layouts.
 
 See the changed code here: https://github.com/oldergod/DataBindingDemo/compare/1-minimal-setup...2-viewbinding
 
 ## 3. One way data binding
 
-Let's pass an object to our layout so every view is automatically filled with its corresponding data. We do not need to `view.setText()` anything anymore.
+Let's pass an object to our layout so every view is automatically filled with its corresponding data. We do not need to `view.setText()` anything anymore.  
 No more Null Pointer Exception! We can use resources, and some logic.
 
 See the changed code here: https://github.com/oldergod/DataBindingDemo/compare/2-viewbinding...3-oneway-data-binding
@@ -71,7 +71,8 @@ See the changed code here: https://github.com/oldergod/DataBindingDemo/compare/7
 
 # Disclaimer
 
-This does not represent all the features of the data binding library. Check the doc for more info: https://developer.android.com/topic/libraries/data-binding/index.html
+The code contains some overkills (like binding methods when not really needed) to display the available features.  
+Also this does not represent all the features of the data binding library. Check the doc for more info: https://developer.android.com/topic/libraries/data-binding/index.html
 
 # License
 
