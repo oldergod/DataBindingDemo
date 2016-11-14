@@ -13,6 +13,7 @@ It starts from a branch without any data binding for each step would be represen
 [7-event-listeners](https://github.com/oldergod/DataBindingDemo/tree/7-event-listeners)  
 [8-twoway-data-binding](https://github.com/oldergod/DataBindingDemo/tree/8-twoway-data-binding)  
 
+The code is commented on the [full-databinding](https://github.com/oldergod/DataBindingDemo/tree/full-databinding) branch only.  
 Here are explanations and comparisons for each branch:
 
 ## 1. Setup
