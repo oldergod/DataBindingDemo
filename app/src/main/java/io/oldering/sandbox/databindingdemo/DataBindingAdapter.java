@@ -6,6 +6,8 @@ import android.databinding.BindingMethods;
 import android.support.design.widget.BottomNavigationView;
 import android.widget.ImageView;
 
+// if we used a 'onNavigationItemSelectedListener', we would not need
+// to explicitly bind the method since the setter name is matched
 @BindingMethods({
         @BindingMethod(
                 type = BottomNavigationView.class,
