@@ -4,6 +4,7 @@ import android.animation.LayoutTransition;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -11,16 +12,15 @@ import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
 
 public class ListActivity extends AppCompatActivity {
     MatchViewModel matchViewModel = new MatchViewModel(Match.giantsTigers);
-    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setMatchVM(matchViewModel);
         binding.setHandler(this);
 
-        setupTransitionDelay();
+        setupTransitionDelay(binding.activityList);
     }
 
     public boolean onNavigationClick(@NonNull MenuItem item) {
@@ -38,8 +38,8 @@ public class ListActivity extends AppCompatActivity {
         return true;
     }
 
-    private void setupTransitionDelay() {
-        LayoutTransition layoutTransition = binding.activityList.getLayoutTransition();
+    private void setupTransitionDelay(ConstraintLayout activityList) {
+        LayoutTransition layoutTransition = activityList.getLayoutTransition();
         layoutTransition.setDuration(200);
         layoutTransition.setAnimator(LayoutTransition.DISAPPEARING, null);
     }
