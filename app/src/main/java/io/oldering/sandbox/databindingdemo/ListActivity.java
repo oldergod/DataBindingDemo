@@ -11,15 +11,16 @@ import android.view.MenuItem;
 import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
 
 public class ListActivity extends AppCompatActivity {
+
     MatchViewModel matchViewModel = new MatchViewModel(Match.giantsTigers);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setMatchVM(matchViewModel);
-        binding.setHandler(this);
 
+        binding.setHandler(this);
+        binding.setMatchVM(matchViewModel);
         setupTransitionDelay(binding.activityList);
     }
 
