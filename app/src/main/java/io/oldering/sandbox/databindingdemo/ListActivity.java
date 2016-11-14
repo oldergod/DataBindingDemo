@@ -10,12 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
-
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
 public class ListActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener,
@@ -24,7 +20,6 @@ public class ListActivity extends AppCompatActivity
     MatchViewModel matchViewModel = new MatchViewModel(Match.giantsTigers);
     private ConstraintLayout activityList;
     private CheckBox showScoreView;
-    private TextView scoreView;
     private BottomNavigationView bottomNavigationView;
     private ActivityMainBinding binding;
 
@@ -35,14 +30,13 @@ public class ListActivity extends AppCompatActivity
 
         bindViews();
         setupListeners();
-        fillData(matchViewModel);
+        binding.setMatchVM(matchViewModel);
         setupTransitionDelay(activityList);
     }
 
     private void bindViews() {
         activityList = binding.activityList;
         showScoreView = binding.showScore;
-        scoreView = binding.score;
         bottomNavigationView = binding.bottomNavigation;
     }
 
@@ -51,14 +45,9 @@ public class ListActivity extends AppCompatActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
-    private void fillData(MatchViewModel matchViewModel) {
-        binding.setMatchVM(matchViewModel);
-    }
-
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         matchViewModel.getMatch().setShowScore(b);
-        scoreView.setVisibility(b ? VISIBLE : GONE);
     }
 
     @Override
@@ -74,7 +63,6 @@ public class ListActivity extends AppCompatActivity
                 matchViewModel.setMatch(Match.swallowsTigers);
                 break;
         }
-        fillData(matchViewModel);
         return true;
     }
 

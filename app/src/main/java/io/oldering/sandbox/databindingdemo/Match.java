@@ -1,6 +1,9 @@
 package io.oldering.sandbox.databindingdemo;
 
-public class Match {
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+public class Match extends BaseObservable {
     static Match tigersDragons = new Match(2016, 7, 30, "甲子園", Team.tigers, Team.dragons, "神8－2中");
     static Match giantsTigers = new Match(2016, 5, 28, /* "東京ドーム" */ null, Team.giants, Team.tigers, "巨4－6神");
     static Match swallowsTigers = new Match(2016, 9, 11, "明治神宮", Team.swallows, Team.tigers, "ヤ0－5神");
@@ -53,11 +56,13 @@ public class Match {
         return score;
     }
 
+    @Bindable
     public boolean isShowScore() {
         return showScore;
     }
 
     public void setShowScore(boolean showScore) {
         this.showScore = showScore;
+        notifyPropertyChanged(BR.showScore);
     }
 }
