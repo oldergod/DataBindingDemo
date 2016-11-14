@@ -5,53 +5,31 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
 
-public class ListActivity extends AppCompatActivity
-        implements BottomNavigationView.OnNavigationItemSelectedListener,
-        CheckBox.OnCheckedChangeListener {
+public class ListActivity extends AppCompatActivity {
 
     MatchViewModel matchViewModel = new MatchViewModel(Match.giantsTigers);
-    private ConstraintLayout activityList;
-    private CheckBox showScoreView;
-    private BottomNavigationView bottomNavigationView;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        bindViews();
-        setupListeners();
+        binding.setHandler(this);
         binding.setMatchVM(matchViewModel);
-        setupTransitionDelay(activityList);
+        setupTransitionDelay(binding.activityList);
     }
 
-    private void bindViews() {
-        activityList = binding.activityList;
-        showScoreView = binding.showScore;
-        bottomNavigationView = binding.bottomNavigation;
-    }
-
-    private void setupListeners() {
-        showScoreView.setOnCheckedChangeListener(this);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+    public void onShowScoreChanged(CompoundButton compoundButton, boolean b) {
         matchViewModel.getMatch().setShowScore(b);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationClick(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_bottom_dragons:
                 matchViewModel.setMatch(Match.tigersDragons);
