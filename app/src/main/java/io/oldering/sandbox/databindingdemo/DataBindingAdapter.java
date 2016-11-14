@@ -14,6 +14,8 @@ import android.widget.ImageView;
         ),
 })
 public class DataBindingAdapter {
+    // use as an exemple but in this case, the attribute name match the setter
+    // so we could skip this binding adapter all together.
     @BindingAdapter("imageResource")
     public static void setImageResource(ImageView imageView, int resourceId) {
         imageView.setImageResource(resourceId);
