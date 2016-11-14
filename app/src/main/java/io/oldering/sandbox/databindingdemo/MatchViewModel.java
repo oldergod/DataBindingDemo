@@ -10,6 +10,7 @@ public class MatchViewModel extends BaseObservable {
         this.match = match;
     }
 
+    // We listener to change on match to refresh the UI automatically when it changes
     @Bindable
     public Match getMatch() {
         return match;

@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <!--we use View class's constants in @+id/score so we need to import the View class-->
         <import type="android.view.View" />
 
+        <!--View Model-->
         <variable
             name="matchVM"
             type="io.oldering.sandbox.databindingdemo.MatchViewModel" />
 
+        <!--Callback handler-->
         <variable
             name="handler"
             type="io.oldering.sandbox.databindingdemo.ListActivity" />
@@ -23,6 +25,7 @@
         android:animateLayoutChanges="true"
         tools:context="io.oldering.sandbox.databindingdemo.ListActivity">
 
+        <!--use of Strings resources-->
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -36,6 +39,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="2016年7月30日" />
 
+        <!--If, at any stage, matchVM.match.stadium returns null, then we use @string/unknown_stadium-->
         <TextView
             android:id="@+id/stadium"
             android:layout_width="wrap_content"
@@ -48,6 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/date"
             tools:text="甲子園" />
 
+        <!--We pass the Team model to the included view-->
         <include
             android:id="@+id/homeTeam"
             layout="@layout/team"
@@ -58,6 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/stadium"
             app:team="@{matchVM.match.homeTeam}" />
 
+        <!--We pass the Team model to the included view-->
         <include
             android:id="@+id/awayTeam"
             layout="@layout/team"

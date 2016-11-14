@@ -56,6 +56,8 @@ public class Match extends BaseObservable {
         return score;
     }
 
+    // we listener to showScore change to update the visibility of 'scoreView'
+    // on change automatically
     @Bindable
     public boolean isShowScore() {
         return showScore;

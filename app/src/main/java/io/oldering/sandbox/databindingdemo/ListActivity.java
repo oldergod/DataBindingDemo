@@ -18,7 +18,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        // We set both the handler and the match model view to the layout
         binding.setHandler(this);
         binding.setMatchVM(matchViewModel);
         setupTransitionDelay(binding.activityList);
