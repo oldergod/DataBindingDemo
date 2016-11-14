@@ -1,6 +1,19 @@
 # Data Binding implementation: step by step
 
 This is a demo app to show how to incrementally implement data binding in an Android app.
+It starts from a branch without any data binding for each step would be represented by a new branch.
+
+[0-no-databinding](https://github.com/oldergod/DataBindingDemo/tree/0-no-databinding)  
+[1-minimal-setup](https://github.com/oldergod/DataBindingDemo/tree/1-minimal-setup)  
+[2-viewbinding](https://github.com/oldergod/DataBindingDemo/tree/2-viewbinding)  
+[3-oneway-data-binding](https://github.com/oldergod/DataBindingDemo/tree/3-oneway-data-binding)  
+[4-view-binding-expression](https://github.com/oldergod/DataBindingDemo/tree/4-view-binding-expression)  
+[5-binding-adapters](https://github.com/oldergod/DataBindingDemo/tree/5-binding-adapters)  
+[6-persistent-data-binding](https://github.com/oldergod/DataBindingDemo/tree/6-persistent-data-binding)  
+[7-event-listeners](https://github.com/oldergod/DataBindingDemo/tree/7-event-listeners)  
+[8-twoway-data-binding](https://github.com/oldergod/DataBindingDemo/tree/8-twoway-data-binding)  
+
+Here are explanations and comparisons for each branch:
 
 ## 1. Setup
 
