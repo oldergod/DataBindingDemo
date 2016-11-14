@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="matchVM"
             type="io.oldering.sandbox.databindingdemo.MatchViewModel" />
@@ -70,7 +72,7 @@
             android:layout_marginTop="16dp"
             android:buttonTint="@color/colorPrimary"
             android:checked="@{matchVM.match.showScore}"
-            android:padding="8dp"
+            android:padding="@{@dimen/activity_vertical_margin / 2}"
             android:text="@string/check_score"
             android:textColor="@color/colorPrimary"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -83,10 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@color/colorPrimary"
-            android:padding="8dp"
+            android:padding="@{@dimen/activity_vertical_margin / 2}"
             android:text="@{matchVM.match.score}"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textColor="@color/colorAccent"
+            android:visibility="@{showScore.checked ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

@@ -62,7 +62,6 @@ public class ListActivity extends AppCompatActivity
         binding.setMatchVM(matchViewModel);
 
         Match match = matchViewModel.getMatch();
-        scoreView.setVisibility(match.isShowScore() ? VISIBLE : GONE);
         homeTeamIconView.setImageResource(match.getHomeTeam().getDrawableId());
         awayTeamIconView.setImageResource(match.getAwayTeam().getDrawableId());
     }
