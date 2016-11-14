@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
@@ -27,8 +26,6 @@ public class ListActivity extends AppCompatActivity
     private CheckBox showScoreView;
     private TextView scoreView;
     private BottomNavigationView bottomNavigationView;
-    private ImageView homeTeamIconView;
-    private ImageView awayTeamIconView;
     private ActivityMainBinding binding;
 
     @Override
@@ -47,10 +44,6 @@ public class ListActivity extends AppCompatActivity
         showScoreView = binding.showScore;
         scoreView = binding.score;
         bottomNavigationView = binding.bottomNavigation;
-
-        homeTeamIconView = binding.homeTeam.teamicon;
-
-        awayTeamIconView = binding.awayTeam.teamicon;
     }
 
     private void setupListeners() {
@@ -60,10 +53,6 @@ public class ListActivity extends AppCompatActivity
 
     private void fillData(MatchViewModel matchViewModel) {
         binding.setMatchVM(matchViewModel);
-
-        Match match = matchViewModel.getMatch();
-        homeTeamIconView.setImageResource(match.getHomeTeam().getDrawableId());
-        awayTeamIconView.setImageResource(match.getAwayTeam().getDrawableId());
     }
 
     @Override
