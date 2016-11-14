@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DataBindingDemo</string>
-    <string name="year_date">%1$s年%2$s月%3$s日</string>
+    <string name="year_date">%1$d年%2$d月%3$d日</string>
     <string name="home_team">ホームチーム</string>
     <string name="away_team">アウエーチーム</string>
     <string name="check_score">結果を見る</string>
