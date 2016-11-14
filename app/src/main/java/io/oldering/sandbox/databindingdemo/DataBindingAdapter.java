@@ -4,7 +4,6 @@ import android.databinding.BindingAdapter;
 import android.databinding.BindingMethod;
 import android.databinding.BindingMethods;
 import android.support.design.widget.BottomNavigationView;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 
 @BindingMethods({
@@ -12,11 +11,6 @@ import android.widget.ImageView;
                 type = BottomNavigationView.class,
                 attribute = "app:onNavigationItemSelected",
                 method = "setOnNavigationItemSelectedListener"
-        ),
-        @BindingMethod(
-                type = CheckBox.class,
-                attribute = "app:onCheckedChanged",
-                method = "setOnCheckedChangeListener"
         ),
 })
 public class DataBindingAdapter {

@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
 
 import io.oldering.sandbox.databindingdemo.databinding.ActivityMainBinding;
 
@@ -23,10 +22,6 @@ public class ListActivity extends AppCompatActivity {
         binding.setHandler(this);
         binding.setMatchVM(matchViewModel);
         setupTransitionDelay(binding.activityList);
-    }
-
-    public void onShowScoreChanged(CompoundButton compoundButton, boolean b) {
-        matchViewModel.getMatch().setShowScore(b);
     }
 
     public boolean onNavigationClick(@NonNull MenuItem item) {
